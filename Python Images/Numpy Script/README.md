@@ -5,12 +5,12 @@ You can build the simple linux docker container using debian by navigating to yo
 Feel free to download the Dockerfile within this repo to follow the example below.
 
 ```bash
-# Navigate to the current Directory
+# Navigate to the current directory
 cd ~/docker-for-datascience/python-images
 
-# Build docker container (image name is set to "test_image")
-docker build . -t python_script_image
+# Build a docker image
+docker build . -t pythonim
 
-# Run the bash and our python script with our container. Then close the container.
-docker run --name python_script_container -it python_script_image  /bin/bash python python_script.py
+# Run container and execute scirpt at runtime.
+docker run --name pythoncn -it pythonim
 ``
