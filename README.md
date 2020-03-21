@@ -27,7 +27,8 @@ docker system prune -a
 docker images
 
 # Remove one image
-docker debian mysql/mysql-server
+docker rmi debian
+docker rmi mysql/mysql-server
 
 # Remove multiple image
 docker rmi debian mysql/mysql-server
