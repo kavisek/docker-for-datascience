@@ -18,3 +18,4 @@ docker run --name argparse-container3 -it argparse-image2:latest car.py -m civic
 # docker run --entrypoint /bin/bash --name argparse-container2 -it argparse-image2:latest
 
 # Check Release
+# cat /etc/issue
