@@ -17,3 +17,4 @@ docker run --name argparse-container -it argparse-image:latest -b outliers -c wh
 # docker run --entrypoint /bin/bash --name gcloud-python-container -it argparse-image:latest
 
 # Check Release
+# cat /etc/issue
