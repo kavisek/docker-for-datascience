@@ -35,7 +35,7 @@ RUN conda config --add channels conda-forge
 RUN conda create --name main python=3.6 -y
 
 # Conda Package Installations
- RUN /bin/bash -c "source activate main \
+RUN /bin/bash -c "source activate main \
   && conda install pandas -y \
   && conda install -c conda-forge gspread -y \
   && conda install -c conda-forge jupyterlab -y \
