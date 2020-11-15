@@ -1,39 +1,33 @@
 # Pull Image from docker hub
-FROM conda/miniconda3
+FROM continuumio/miniconda:4.7.12
+LABEL maintainer="kavisek"
 
 # Set working directory
-WORKDIR /root
+WORKDIR /app
 
 # Copying File to Room Directory
-COPY . /root/
+COPY . /app/
 
 # Install Linux Packages
 RUN apt-get update
-RUN apt-get install sudo  -y
-RUN sudo apt-get install bzip2
-RUN sudo apt-get install curl -y
-RUN sudo apt-get install wget
-RUN sudo apt install screen -y
+RUN apt-get install sudo -y
+RUN apt-get install bzip2 curl wget wget screen lsof nano make -y
 RUN sudo apt-get install postgresql postgresql-contrib -y
-RUN sudo apt install nano
-RUN sudo apt-get install screen
-RUN sudo apt-get install lsof
-RUN sudo apt install git -y
 
 # Install MYSQL Command Line client
-RUN apt-get install -y mysql-client
-RUN apt-get install -y libzbar-dev
-RUN sudo apt-get install libmariadbclient-dev
+RUN apt-get install mariadb-client libzbar-dev -y
 
 # Update Conda
 RUN conda update -n base -c defaults conda
+
+# Add Channels
 RUN conda config --add channels conda-forge
 
 # Create Conda Virtual Enviroment
-RUN conda create --name main python=3.6 -y
+RUN conda create --name app python=3.6 -y
 
 # Conda Package Installations
- RUN /bin/bash -c "source activate main \
+RUN /bin/bash -c "source activate app \
   && conda install pandas -y \
   && conda install -c conda-forge gspread -y \
   && conda install -c conda-forge jupyterlab -y \
@@ -49,3 +43,6 @@ RUN conda create --name main python=3.6 -y
 
 # Make port 8080
 EXPOSE 8080
+
+
+ENTRYPOINT ["conda","run","-n","app","python3","/app/main.py"]

@@ -9,12 +9,12 @@ This dockerfile uses the vanilla "conda/miniconda3" docker image which is mainta
 cd ~/Repos/Science/Docker/Debian\ Conda\ Image/
 
 # Build docker container (image name is set to "test_image")
-docker build -t test_image .
+docker build -t conda_image .
 
 # Run the docker container after the build is complete
 # The container is using the "test_image" image
 # The container is named "test_container"
-docker run --name test_container -it test_image  /bin/bash
+docker run --name conda_container -it conda_image  /bin/bash
 ```
 
 Sources

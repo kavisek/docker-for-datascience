@@ -4,6 +4,14 @@
 
 This a file is a consolidation of docker command and notes sourced form the community. Reference can be found at the bottom of page.
 
+### Table on Contents
+
+
+- Conda Images
+    - Conda Manual Image
+    - Conda Enviroments Images
+
+
 ### Image Management
 
 
