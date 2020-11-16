@@ -1,5 +1,5 @@
 mkdir_volume_store:
-	mkdir -p $HOME/workspaces/docker/volumes/postgres
+	mkdir -p $HOME/workspaces/docker/volumes/postgres_11
 
 docker_build:
 	docker pull postgres:11
@@ -11,7 +11,7 @@ docker_run:
 	docker run --rm --name pg-docker-11 \
 	-e POSTGRES_PASSWORD=docker -d \
 	-p 5431:5432 \
-	-v $HOME/docker/volumes/postgres:/var/lib/postgresql_11/data \
+	-v $HOME/workspaces/docker/volumes/postgres_11:/var/lib/postgresql/data \
 	postgres:11
 
 
