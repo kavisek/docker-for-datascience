@@ -9,4 +9,3 @@ alpine_run: alpine_build
 	docker run \
 	--name alpine_contianer \
 	-it alpine_image
-	
