@@ -14,4 +14,4 @@ do
   docker rm $id
 done
 
-echo "Containers has been Destroyed!!"
+echo "Containers have been Destroyed!!"

@@ -25,7 +25,4 @@ done
 # Docker prune all dangling images
 docker image prune -a -f
 
-# Remove volumes
-docker volume rm $(docker volume ls -q)
-
-echo "Docker has been Destroyed!!"
+echo "Images have been Destroyed!!"
