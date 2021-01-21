@@ -7,5 +7,5 @@ alpine_build:
 alpine_run: alpine_build
 	# Run the container
 	docker run \
-	--name alpine_contianer \
+	--name alpine_container \
 	-it alpine_image
