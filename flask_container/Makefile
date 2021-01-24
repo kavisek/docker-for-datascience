@@ -1,19 +1,19 @@
 
-dash_build:
+flask_build:
 	# Build the iamage.
-	docker build --pull --rm -f "Dockerfile" -t dash_image "."
+	docker build --pull --rm -f "Dockerfile" -t flask_image "."
 
-dash_run: dash_build
+flask_run: flask_build
 	# Run the container
 	docker run --rm \
-	-p 8050:8050 \
+	-p 5000:5000 \
 	--mount type=bind,source=$(shell pwd),target=/app \
-	--name dash_container -it dash_image 
+	--name flask_container -it flask_image 
 
-dash_bash: dash_build
+flask_bash: flask_build
 	# Run the container
 	docker run --rm \
-	-p 8050:8050 \
+	-p 5000:5000 \
 	--entrypoint /bin/bash \
 	--mount type=bind,source=$(shell pwd),target=/app \
-	--name dash_container -it dash_image 
+	--name flask_container -it flask_image 
