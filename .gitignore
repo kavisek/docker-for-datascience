@@ -19,7 +19,7 @@
 *.icloud
 *.twbx
 *.tar
-
+.ipynb_checkpoints/*
 
 # Whitelisted files
 !requirements.txt
