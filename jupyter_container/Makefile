@@ -5,7 +5,7 @@ jupyter_build:
 
 jupyter_run: jupyter_build
 	# Run the container
-	docker run \
+	docker run --rm \
 	-p 8888:8888 \
 	--mount type=bind,source=$(shell pwd),target=/app \
 	--name jupyter_container -it jupyter_image 
