@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+
+  sql-server-db:
+    container_name: sql-server-db
+    image: microsoft/mssql-server-linux:2017-latest
+    restart: always
+    ports:
+      - "1433:1433"
+    expose:
+      - '1433'
+    environment:
+      # This password needs tbe 8 characters and complex for the container to work.
+      SA_PASSWORD: "123!Docker123!"
+      ACCEPT_EULA: "Y"

@@ -19,7 +19,10 @@
 *.icloud
 *.twbx
 *.tar
-
+.ipynb_checkpoints
+jupyter_container/*.ipynb
 
 # Whitelisted files
 !requirements.txt
+!dash_container/data/*
+.index.html

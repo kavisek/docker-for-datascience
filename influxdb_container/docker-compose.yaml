@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+
+  influx-db:
+    container_name: influx-db
+    image: influxdb:latest
+    restart: always
+    ports:
+      - "8083:8083"
+    expose:
+      - '8083'
+    env_file:
+      - 'env.influxdb'
