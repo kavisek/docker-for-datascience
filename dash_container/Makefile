@@ -17,3 +17,9 @@ dash_bash: dash_build
 	--entrypoint /bin/bash \
 	--mount type=bind,source=$(shell pwd),target=/app \
 	--name dash_container -it dash_image 
+
+
+test_script:
+	echo "23123"
+	echo "23123"
+	echo "23122"

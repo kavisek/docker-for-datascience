@@ -23,4 +23,5 @@
 
 # Whitelisted files
 !requirements.txt
+!dash_container/data/*
 .index.html
