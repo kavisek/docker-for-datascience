@@ -26,3 +26,7 @@ jupyter_container/*.ipynb
 !requirements.txt
 !dash_container/data/*
 .index.html
+
+# White list container mount but not the mounted files.
+!postgres_container/cache/data
+postgres_container/cache/data/*
