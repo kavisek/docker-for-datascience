@@ -18,15 +18,24 @@ docker_run:
 	postgres:11
 
 docker_inspect:
+	# Inspect the container
 	docker inspect pg-docker-11 
 
 docker_logs:
 	# View the logs of the container is something goes wrong
 	docker logs  pg-docker-11 
 
-docker_exec:
-	docker exec -it pg-docker-11 psql -U postgres
+docker_connect:
+	# Connet to the database via bin/bash
+	docker exec -it pg-docker-11 /bin/bash
 
+create_adventureworks_db:
+	# Create a "adventureworks" database
+	docker exec -it pg-docker-11 psql -U postgres -c "CREATE DATABASE \"Adventureworks\";"
+
+load_adventure_works:
+	# Load the database into the container from local machine.
+	docker exec -i pg-docker-11 psql -U postgres -d Adventureworks < databases/adventure_works.sql
 
 view_database:
 	\d
