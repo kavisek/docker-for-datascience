@@ -31,3 +31,6 @@ jupyter_container/*.ipynb
 
 # White list container mount but not the mounted files.
 !postgres_container/cache/data
+
+# Sample databases
+!devices_small.tar.gz

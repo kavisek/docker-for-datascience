@@ -1,12 +1,9 @@
-mkdir_volume_store:
-	mkdir -p $HOME/workspaces/docker/volumes/postgres_11
-
 docker_build:
 	docker pull postgres:11
 
 docker_run:
-	# Make a directory to save your local db.
-	mkdir -p cache/data
+	# Make a directory to save your local db volume.
+	mkdir -p ./cache/data
 
 	# We are exporing our local 5431 port to dockers 5432
 	# We saving our postgress passwording as enviroment variable to not password prompt is needed.
@@ -25,7 +22,7 @@ docker_logs:
 	# View the logs of the container is something goes wrong
 	docker logs  pg-docker-11 
 
-docker_connect:
+docker_bash:
 	# Connet to the database via bin/bash
 	docker exec -it pg-docker-11 /bin/bash
 

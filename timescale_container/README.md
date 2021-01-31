@@ -68,6 +68,10 @@ conda create -n postgres python=3.6 \
 
 You might need to install extra package to get the notebooks within this repo to work. This should be pretty easy if you have experience with conda.
 
+### Timescale Databases
+
+Here is a link to sample [TimeScale Datasets](https://docs.timescale.com/latest/tutorials/other-sample-datasets).
+
 ### References
 
 - https://www.saltycrane.com/blog/2019/01/how-run-postgresql-docker-mac-local-development/
