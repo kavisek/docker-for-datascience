@@ -37,7 +37,7 @@ unzip_devices_small:
 	tar -xvzf ./databases/devices_small.tar.gz -C ./databases
 
 load_devices_small:
-	# Load in database schema.
+	# Load in database's public schema.
 	docker exec -i timescaledb-11 psql -U postgres -d devices_small < databases/devices.sql
 	# Copy datafrom mounted directory.
 	docker exec -i timescaledb-11 psql -U postgres -d devices_small -c "\COPY readings FROM databases/devices_small_readings.csv CSV"
