@@ -37,7 +37,13 @@ conda create -n postgres python=3.6 \
 
 You might need to install extra package to get the notebooks within this repo to work. This should be pretty easy if you have experience with conda.
 
+# Loading Sample Data
+
+You can dowloda a postgres compatible version of the postgres database at the following [Adventure Works Database Link](https://github.com/lorint/AdventureWorks-for-Postgres).
+
 ### References
+
+cl
 
 - https://www.saltycrane.com/blog/2019/01/how-run-postgresql-docker-mac-local-development/
 - https://hub.docker.com/_/postgres?tab=description
