@@ -15,7 +15,7 @@ do
 done
 
 # Remove all Images
-ids=$(docker images -q)
+ids=$(docker images | grep -v "docker\|k8s.gcr.io\|REPOSITORY" | awk '{print $3}')
 for id in $ids
 do
   echo "Removing Image $id"
