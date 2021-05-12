@@ -26,6 +26,11 @@ done
 docker image prune -a -f
 
 # Remove volumes
-docker volume rm $(docker volume ls -q)
+ids=$(docker volume ls -q)
+for id in $ids
+do
+  echo "Removing Volume $id"
+  docker volume rm id
+done
 
 echo "Docker has been Destroyed!!"
