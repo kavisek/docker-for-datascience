@@ -1,0 +1,67 @@
+version: "3.8"
+
+services:
+
+  # Local database
+  local_db:
+    build:
+        context: ./database
+        dockerfile: Dockerfile
+    command: postgres -c shared_preload_libraries=pg_stat_statements -c pg_stat_statements.track=all -c max_connections=400
+    healthcheck:
+        test: ["CMD-SHELL", "pg_isready"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+    restart: unless-stopped
+    environment:
+      ENV: local
+      POSTGRES_DB: local_db
+      POSTGRES_USERS: postgres
+      POSTGRES_PASSWORD: docker
+      POSTGRES_HOST: postgres
+      PGUSER: postgres
+      PGPASSWORD: docker
+    ports:
+        - "5432:5432"
+    networks:
+        -  local-network
+    volumes:
+        - local-db:/var/lib/postgres/data
+    profiles:
+      - db
+
+  # Migration Service
+  liquibase_service:
+    build:
+        context: ./liquibase
+        dockerfile: Dockerfile
+    # command: sleep infinity
+    depends_on:
+        local_db:
+            condition: service_healthy
+    command: ["--defaultsFile=/liquibase/liquibase.docker.properties", update]
+    environment:
+        ENV: local
+    volumes:
+        - ./migrations/changelog:/liquibase/changelog
+        - ./migrations/sql:/liquibase/sql
+        - ./liquibase/liquibase.docker.properties:/liquibase/liquibase.docker.properties
+    networks:
+        -  local-network
+    profiles:
+        - db
+        - liq
+
+        
+    
+
+# Volumes
+volumes:
+    local-db:
+      driver: local
+
+# Network
+networks:
+    local-network:
+      driver: bridge
